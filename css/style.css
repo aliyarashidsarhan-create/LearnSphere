@@ -1,0 +1,20 @@
+:root {
+  --bg-color: #f8f9fc;
+  --text-color: #212529;
+  --card-bg: #ffffff;
+  --primary-color: #6f42c1;
+  --secondary-color: #f59f00;
+  --muted-color: #6c757d;
+  --border-color: #dee2e6;
+  --hero-overlay: linear-gradient(135deg, rgba(111,66,193,0.9), rgba(245,159,0,0.7));
+}
+body.dark {
+  --bg-color: #121212;
+  --text-color: #f1f1f1;
+  --card-bg: #1e1e1e;
+  --primary-color: #b197fc;
+  --secondary-color: #ffd43b;
+  --muted-color: #adb5bd;
+  --border-color: #343a40;
+  --hero-overlay: linear-gradient(135deg, rgba(30,30,30,0.92), rgba(111,66,193,0.65));
+}

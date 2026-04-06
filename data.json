@@ -1,0 +1,621 @@
+{
+"courses": [
+{
+"id": 1,
+"title": "HTML & CSS Fundamentals",
+"category": "Web Development",
+"instructor": "Sara Al-Rashidi",
+"rating": 4.8,
+"price": 0,
+"duration": "12h 30m",
+"level": "Beginner",
+"studentsCount": 3420,
+"available": true,
+"topics": [
+"Semantic HTML5 tags",
+"CSS Box Model and Flexbox",
+        "Responsive design with media queries",
+        "CSS variables and custom properties",
+        "Forms and input elements"
+      ],
+      "quiz": [
+        {
+          "question": "Which tag is used for the largest heading?",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "answer": ""
+        },
+        {
+          "question": "Which CSS property changes text colour?",
+          "options": [
+            "font-color",
+            "text-color",
+            "color",
+            "background-color"
+          ],
+          "answer": "color"
+        },
+        {
+          "question": "Which unit is relative to the viewport width?",
+          "options": [
+            "px",
+            "em",
+            "vw",
+            "cm"
+          ],
+          "answer": "vw"
+        },
+        {
+          "question": "Which property makes a flex container?",
+          "options": [
+            "display: block",
+            "display: flex",
+            "position: flex",
+            "float: left"
+          ],
+          "answer": "display: flex"
+        },
+        {
+          "question": "What does the  tag represent?",
+          "options": [
+            "A hyperlink",
+            "A thematic grouping of content",
+            "A navigation bar",
+            "A form"
+          ],
+          "answer": "A thematic grouping of content"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Bootstrap 5 \u2014 Responsive Layouts",
+      "category": "Web Development",
+      "instructor": "Omar Khalil",
+      "rating": 4.6,
+      "price": 15,
+      "duration": "8h 45m",
+      "level": "Beginner",
+      "studentsCount": 2185,
+      "available": true,
+      "topics": [
+        "Bootstrap grid system (12 columns)",
+        "Responsive breakpoints (sm, md, lg, xl)",
+        "Bootstrap components: navbar, cards, modals",
+        "Utility classes for spacing and typography",
+        "Bootstrap forms and validation states"
+      ],
+      "quiz": [
+        {
+          "question": "How many columns does Bootstrap's grid have?",
+          "options": [
+            "10",
+            "12",
+            "16",
+            "8"
+          ],
+          "answer": "12"
+        },
+        {
+          "question": "Which class makes a navbar fixed to the top?",
+          "options": [
+            "navbar-fixed",
+            "sticky-top",
+            "top-fixed",
+            "navbar-top"
+          ],
+          "answer": "sticky-top"
+        },
+        {
+          "question": "Which breakpoint targets tablets (\u2265768px)?",
+          "options": [
+            "sm",
+            "md",
+            "lg",
+            "xl"
+          ],
+          "answer": "md"
+        },
+        {
+          "question": "Which class makes a button full-width?",
+          "options": [
+            "btn-block",
+            "btn-full",
+            "w-100",
+            "d-block"
+          ],
+          "answer": "w-100"
+        },
+        {
+          "question": "Which utility class adds margin on all sides?",
+          "options": [
+            "p-3",
+            "m-3",
+            "mx-3",
+            "my-3"
+          ],
+          "answer": "m-3"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "JavaScript ES6+ \u2014 From Zero to DOM",
+      "category": "Web Development",
+      "instructor": "Layla Mansour",
+      "rating": 4.9,
+      "price": 25,
+      "duration": "22h 00m",
+      "level": "Intermediate",
+      "studentsCount": 5610,
+      "available": true,
+      "topics": [
+        "Variables, data types, and type casting",
+        "Functions, arrow functions, and closures",
+        "Arrays and array methods (map, filter, reduce)",
+        "DOM manipulation and event listeners",
+        "LocalStorage and SessionStorage",
+        "Fetch API and working with JSON",
+        "ES6 classes and OOP"
+      ],
+      "quiz": [
+        {
+          "question": "Which method adds an element to the end of an array?",
+          "options": [
+            "push()",
+            "pop()",
+            "shift()",
+            "unshift()"
+          ],
+          "answer": "push()"
+        },
+        {
+          "question": "What does localStorage.getItem() return if key does not exist?",
+          "options": [
+            "undefined",
+            "0",
+            "null",
+            "false"
+          ],
+          "answer": "null"
+        },
+        {
+          "question": "Which keyword declares a block-scoped variable?",
+          "options": [
+            "var",
+            "let",
+            "function",
+            "const"
+          ],
+          "answer": "let"
+        },
+        {
+          "question": "What does the fetch() function return?",
+          "options": [
+            "A JSON object",
+            "A Promise",
+            "An array",
+            "A string"
+          ],
+          "answer": "A Promise"
+        },
+        {
+          "question": "Which method selects an element by its id?",
+          "options": [
+            "querySelector()",
+            "getElementById()",
+            "getElement()",
+            "selectById()"
+          ],
+          "answer": "getElementById()"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "TypeScript Essentials",
+      "category": "Web Development",
+      "instructor": "Faris Al-Siyabi",
+      "rating": 4.7,
+      "price": 20,
+      "duration": "10h 15m",
+      "level": "Intermediate",
+      "studentsCount": 1870,
+      "available": true,
+      "topics": [
+        "TypeScript vs JavaScript \u2014 key differences",
+        "Static typing: string, number, boolean, any",
+        "Interfaces and type aliases",
+        "Classes and access modifiers",
+        "Compilation with tsc and tsconfig.json",
+        "Watch mode and project workflow"
+      ],
+      "quiz": [
+        {
+          "question": "What file extension does TypeScript use?",
+          "options": [
+            ".js",
+            ".ts",
+            ".tx",
+            ".tp"
+          ],
+          "answer": ".ts"
+        },
+        {
+          "question": "Which command initialises a tsconfig.json?",
+          "options": [
+            "tsc --start",
+            "tsc --init",
+            "tsc --config",
+            "tsc --setup"
+          ],
+          "answer": "tsc --init"
+        },
+        {
+          "question": "Which type allows any value in TypeScript?",
+          "options": [
+            "all",
+            "any",
+            "dynamic",
+            "object"
+          ],
+          "answer": "any"
+        },
+        {
+          "question": "What keyword defines a TypeScript interface?",
+          "options": [
+            "type",
+            "class",
+            "interface",
+            "schema"
+          ],
+          "answer": "interface"
+        },
+        {
+          "question": "Which command auto-recompiles on file save?",
+          "options": [
+            "tsc --live",
+            "tsc --auto",
+            "tsc --watch",
+            "tsc --run"
+          ],
+          "answer": "tsc --watch"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Angular 16 \u2014 Complete Guide",
+      "category": "Web Development",
+      "instructor": "Nadia Hassan",
+      "rating": 4.9,
+      "price": 35,
+      "duration": "28h 00m",
+      "level": "Advanced",
+      "studentsCount": 2940,
+      "available": true,
+      "topics": [
+        "Angular CLI, project structure, and components",
+        "Data binding: interpolation, property, event",
+        "Structural directives: ngIf, ngFor, ngSwitch",
+        "Services and Dependency Injection",
+        "@Input() and @Output() communication",
+        "Angular Router and lazy loading",
+        "TypeScript interfaces in Angular"
+      ],
+      "quiz": [
+        {
+          "question": "Which decorator marks a class as an Angular component?",
+          "options": [
+            "@NgModule",
+            "@Component",
+            "@Injectable",
+            "@Directive"
+          ],
+          "answer": "@Component"
+        },
+        {
+          "question": "Which directive loops over an array in Angular?",
+          "options": [
+            "*ngIf",
+            "*ngFor",
+            "*ngSwitch",
+            "*ngLoop"
+          ],
+          "answer": "*ngFor"
+        },
+        {
+          "question": "Which decorator allows a parent to pass data to a child?",
+          "options": [
+            "@Output()",
+            "@Input()",
+            "@Inject()",
+            "@Data()"
+          ],
+          "answer": "@Input()"
+        },
+        {
+          "question": "What is the router placeholder tag in Angular?",
+          "options": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "answer": ""
+        },
+        {
+          "question": "What does providedIn: 'root' do to a service?",
+          "options": [
+            "Limits it to one module",
+            "Makes it a singleton",
+            "Disables injection",
+            "Exports the service"
+          ],
+          "answer": "Makes it a singleton"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "UI/UX Design Fundamentals",
+      "category": "Design",
+      "instructor": "Amina Qasim",
+      "rating": 4.5,
+      "price": 18,
+      "duration": "9h 00m",
+      "level": "Beginner",
+      "studentsCount": 1320,
+      "available": true,
+      "topics": [
+        "Design principles: contrast, alignment, proximity",
+        "Colour theory and typography",
+        "Wireframing and prototyping",
+        "Accessibility and WCAG basics",
+        "Figma basics for developers"
+      ],
+      "quiz": [
+        {
+          "question": "Which principle groups related items together?",
+          "options": [
+            "Contrast",
+            "Alignment",
+            "Proximity",
+            "Repetition"
+          ],
+          "answer": "Proximity"
+        },
+        {
+          "question": "What does WCAG stand for?",
+          "options": [
+            "Web Content Accessibility Guidelines",
+            "Web CSS Authoring Group",
+            "Web Component API Guide",
+            "Web Core Attribute Grid"
+          ],
+          "answer": "Web Content Accessibility Guidelines"
+        },
+        {
+          "question": "Which colour model is used for screens?",
+          "options": [
+            "CMYK",
+            "RGB",
+            "HSL only",
+            "Pantone"
+          ],
+          "answer": "RGB"
+        },
+        {
+          "question": "What is a wireframe?",
+          "options": [
+            "A finished design",
+            "A low-fidelity layout sketch",
+            "A CSS framework",
+            "A font system"
+          ],
+          "answer": "A low-fidelity layout sketch"
+        },
+        {
+          "question": "What does UX stand for?",
+          "options": [
+            "User Experience",
+            "User Extension",
+            "UI Extra",
+            "Uniform Exchange"
+          ],
+          "answer": "User Experience"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Python for Data Science",
+      "category": "Data Science",
+      "instructor": "Khalid Al-Farsi",
+      "rating": 4.7,
+      "price": 30,
+      "duration": "18h 30m",
+      "level": "Intermediate",
+      "studentsCount": 2210,
+      "available": true,
+      "topics": [
+        "Python basics: variables, lists, dictionaries",
+        "NumPy for numerical computing",
+        "Pandas for data manipulation",
+        "Data visualisation with Matplotlib",
+        "Intro to machine learning with scikit-learn"
+      ],
+      "quiz": [
+        {
+          "question": "Which library is used for data manipulation in Python?",
+          "options": [
+            "NumPy",
+            "Pandas",
+            "Matplotlib",
+            "SciPy"
+          ],
+          "answer": "Pandas"
+        },
+        {
+          "question": "Which method reads a CSV file in Pandas?",
+          "options": [
+            "pd.read()",
+            "pd.open()",
+            "pd.read_csv()",
+            "pd.load_csv()"
+          ],
+          "answer": "pd.read_csv()"
+        },
+        {
+          "question": "Which Python keyword starts a loop?",
+          "options": [
+            "loop",
+            "repeat",
+            "for",
+            "iterate"
+          ],
+          "answer": "for"
+        },
+        {
+          "question": "What does len() return?",
+          "options": [
+            "Last element",
+            "Length of object",
+            "Data type",
+            "None"
+          ],
+          "answer": "Length of object"
+        },
+        {
+          "question": "Which library plots charts in Python?",
+          "options": [
+            "Seaborn only",
+            "Matplotlib",
+            "Bokeh only",
+            "Plotly only"
+          ],
+          "answer": "Matplotlib"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Ethical Hacking & Network Security",
+      "category": "Cybersecurity",
+      "instructor": "Yousef Al-Balushi",
+      "rating": 4.8,
+      "price": 40,
+      "duration": "24h 00m",
+      "level": "Advanced",
+      "studentsCount": 980,
+      "available": false,
+      "topics": [
+        "Network fundamentals and OSI model",
+        "Reconnaissance and information gathering",
+        "Vulnerability scanning",
+        "Web application security (OWASP Top 10)",
+        "Penetration testing methodology"
+      ],
+      "quiz": [
+        {
+          "question": "What does SQL Injection exploit?",
+          "options": [
+            "CSS files",
+            "Database queries",
+            "JavaScript events",
+            "HTML forms"
+          ],
+          "answer": "Database queries"
+        },
+        {
+          "question": "Which layer of OSI handles routing?",
+          "options": [
+            "Layer 1",
+            "Layer 2",
+            "Layer 3",
+            "Layer 4"
+          ],
+          "answer": "Layer 3"
+        },
+        {
+          "question": "What does HTTPS stand for?",
+          "options": [
+            "HyperText Transfer Protocol Secure",
+            "High Transfer Protocol System",
+            "HTML Transfer Secure",
+            "Host Transfer Protocol Service"
+          ],
+          "answer": "HyperText Transfer Protocol Secure"
+        },
+        {
+          "question": "Which tool is commonly used for port scanning?",
+          "options": [
+            "Wireshark",
+            "Nmap",
+            "Burp Suite",
+            "Metasploit"
+          ],
+          "answer": "Nmap"
+        },
+        {
+          "question": "What is a firewall?",
+          "options": [
+            "An antivirus program",
+            "A network security system",
+            "A VPN client",
+            "A password manager"
+          ],
+          "answer": "A network security system"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "name": "Web Development",
+      "icon": "\ud83d\udcbb",
+      "courseCount": 5
+    },
+    {
+      "name": "Data Science",
+      "icon": "\ud83d\udcca",
+      "courseCount": 3
+    },
+    {
+      "name": "Design",
+      "icon": "\ud83c\udfa8",
+      "courseCount": 2
+    },
+    {
+      "name": "Cybersecurity",
+      "icon": "\ud83d\udd12",
+      "courseCount": 2
+    },
+    {
+      "name": "Mobile Dev",
+      "icon": "\ud83d\udcf1",
+      "courseCount": 2
+    },
+    {
+      "name": "DevOps",
+      "icon": "\u2699\ufe0f",
+      "courseCount": 2
+    }
+  ],
+  "stats": {
+    "totalCourses": 8,
+    "studentsEnrolled": 20535,
+    "instructors": 8
+  },
+  "platform_info": {
+    "name": "LearnSphere",
+    "tagline": "Learn Without Limits",
+    "email": "support@learnsphere.com",
+    "phone": "+968 2400 9999",
+    "address": "Tech Hub, Muscat, Oman"
+  }
+}
