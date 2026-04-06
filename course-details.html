@@ -9,10 +9,49 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="navbar-container"></div>
+ <div id="navbar-container"></div>
 
-<!-- page content here -->
+  <main class="py-5">
+    <div class="container">
+      <div id="course-header" class="mb-5"></div>
 
-<div id="footer-container"></div>
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <section class="card shadow-sm mb-4">
+            <div class="card-body">
+              <h3>What You Will Learn</h3>
+              <ul id="topics-list"></ul>
+            </div>
+          </section>
+
+          <section class="card shadow-sm">
+            <div class="card-body">
+              <h3>Mini Quiz</h3>
+              <form id="quiz-form"></form>
+              <button id="submit-quiz" class="btn btn-warning mt-3">Submit Quiz</button>
+              <p id="quiz-result" class="mt-3 fw-bold"></p>
+            </div>
+          </section>
+        </div>
+
+        <div class="col-lg-4">
+          <section class="card shadow-sm mb-4">
+            <div class="card-body" id="instructor-card"></div>
+          </section>
+
+          <section class="card shadow-sm">
+            <div class="card-body">
+              <div id="enroll-area"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+   <script src="./js/bootstrap.bundle.min.js"></script>
+   <script src="./js/main.js"></script>
+    <script src="./js/details.js"></script>
 </body>
 </html>
