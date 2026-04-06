@@ -1,20 +1,74 @@
 :root {
-  --bg-color: #f8f9fc;
-  --text-color: #212529;
+  --primary: #6f42c1;
+  --secondary: #ffc107;
+  --bg: #ffffff;
+  --text: #212529;
   --card-bg: #ffffff;
-  --primary-color: #6f42c1;
-  --secondary-color: #f59f00;
-  --muted-color: #6c757d;
-  --border-color: #dee2e6;
-  --hero-overlay: linear-gradient(135deg, rgba(111,66,193,0.9), rgba(245,159,0,0.7));
+  --muted: #6c757d;
+  --footer-bg: #1f1f2e;
 }
+
 body.dark {
-  --bg-color: #121212;
-  --text-color: #f1f1f1;
+  --bg: #121212;
+  --text: #f8f9fa;
   --card-bg: #1e1e1e;
-  --primary-color: #b197fc;
-  --secondary-color: #ffd43b;
-  --muted-color: #adb5bd;
-  --border-color: #343a40;
-  --hero-overlay: linear-gradient(135deg, rgba(30,30,30,0.92), rgba(111,66,193,0.65));
+  --muted: #adb5bd;
+  --footer-bg: #0d0d14;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: 0.3s ease;
+}
+
+.card,
+.navbar,
+.site-footer,
+.form-control,
+.form-select {
+  background-color: var(--card-bg);
+  color: var(--text);
+  transition: 0.3s ease;
+}
+
+.hero-section {
+  min-height: 80vh;
+  background:
+    linear-gradient(rgba(111, 66, 193, 0.75), rgba(0, 0, 0, 0.55)),
+    url('../assets/image/hero.jpg') center/cover no-repeat;
+}
+
+.custom-navbar .nav-link,
+.site-footer,
+.site-footer a {
+  color: var(--text);
+}
+
+.course-card,
+.category-card,
+.stat-card {
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover,
+.category-card:hover,
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.site-footer {
+  background-color: var(--footer-bg);
+  color: #fff;
+}
+
+.site-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.badge-level {
+  font-size: 0.8rem;
 }
