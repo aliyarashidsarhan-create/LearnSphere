@@ -1,62 +1,21 @@
-function getEnrolledCourses() {
-  return JSON.parse(localStorage.getItem("enrolled")) || [];
-}
+async function loadSharedComponent(containerId, filePath) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
 
-function updateEnrollmentBadge() {
-  const badge = document.getElementById("enrolledCount");
-  if (badge) {
-    badge.textContent = getEnrolledCourses().length;
+  try {
+    const response = await fetch(filePath);
+    const html = await response.text();
+    container.innerHTML = html;
+  } catch (error) {
+    console.error(`Error loading ${filePath}:`, error);
   }
 }
 
-function applySavedTheme() {
-  const savedTheme = localStorage.getItem("theme") || "light";
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark");
-  } else {
-    document.body.classList.remove("dark");
-  }
-}
+document.addEventListener('DOMContentLoaded', async function () {
+  await loadSharedComponent('navbar-container', 'navbar.html');
+  await loadSharedComponent('footer-container', 'footer.html');
 
-function setupThemeToggle() {
-  const toggleBtn = document.getElementById("themeToggle");
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-      const theme = document.body.classList.contains("dark") ? "dark" : "light";
-      localStorage.setItem("theme", theme);
-    });
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
   applySavedTheme();
   updateEnrollmentBadge();
-  setupThemeToggle();
-});
-
-function setupNewsletter() {
-  const btn = document.getElementById("subscribeBtn");
-  const emailInput = document.getElementById("newsletterEmail");
-  const msg = document.getElementById("subscribeMessage");
-
-  if (btn && emailInput && msg) {
-    btn.addEventListener("click", () => {
-      if (emailInput.value.trim() === "") {
-        msg.textContent = "Please enter a valid email.";
-        msg.className = "text-danger mt-2";
-      } else {
-        msg.textContent = "Subscribed successfully!";
-        msg.className = "text-success mt-2";
-        emailInput.value = "";
-      }
-    });
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  applySavedTheme();
-  updateEnrollmentBadge();
-  setupThemeToggle();
-  setupNewsletter();
+  bindThemeToggle();
 });
