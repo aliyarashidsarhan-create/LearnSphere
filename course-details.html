@@ -3,32 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!------------------ link all main css ------------------>
   <link rel="stylesheet" href="./css/all.min.css">
+  <!----------------- link all Bootstrap css     ---------->
   <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <!------------------ link style  ------------------>
   <link rel="stylesheet" href="./css/style.css">
+
   <title>LearnSphere - Course Details</title>
 </head>
 <body>
+  <!------------------ navbar of the page ------------------>
   <div id="navbar-container"></div>
 
   <main class="py-5">
     <div class="container">
       <div id="course-details-container"></div>
+     <!--------- What You Will Learn section ------------>
       <div class="row mt-5">
         <div class="col-lg-8">
           <div class="card p-4 mb-4">
             <h3 class="mb-3">What You Will Learn</h3>
             <ul id="topics-list" class="mb-0"></ul>
           </div>
-
+       <!-------------Mini Quiz section -------------->
           <div class="card p-4">
             <h3 class="mb-3">Mini Quiz</h3>
             <form id="quiz-form"></form>
-            <button id="submit-quiz" class="btn btn-warning mt-3">Submit Quiz</button>
+            <button type="button" id="submit-quiz" class="btn btn-warning mt-3">Submit Quiz</button>
             <div id="quiz-result" class="mt-3 fw-bold"></div>
           </div>
         </div>
-
+        <!------------- Instructor card section --------->
         <div class="col-lg-4">
           <div class="card instructor-card p-4">
             <h4 class="mb-3">Instructor</h4>
@@ -38,11 +44,13 @@
       </div>
     </div>
   </main>
-
+  <!------------------ footer of the page ------------------>
   <div id="footer-container"></div>
-
+  <!-------------link bootstrap  ----------------------->
   <script src="./js/bootstrap.bundle.min.js"></script>
+   <!-------------link main script  ----------------------->
   <script src="./js/main.js"></script>
+   <!-------------link details script  ----------------------->
   <script src="./js/details.js"></script>
 </body>
 </html>

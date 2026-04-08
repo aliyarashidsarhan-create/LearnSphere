@@ -3,24 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!------------------ link all main css ------------------>
   <link rel="stylesheet" href="./css/all.min.css">
+  <!----------------- link all Bootstrap css     ---------->
   <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <!------------------ link style  ------------------>
   <link rel="stylesheet" href="./css/style.css">
   <title>LearnSphere - Courses</title>
 </head>
 <body>
+  <!------------------ navbar of the page ------------------>
   <div id="navbar-container"></div>
 
+  <!-- main content area for the Courses Catalog page -->
   <main class="py-5">
     <div class="container">
       <h1 class="mb-4">Courses Catalog</h1>
-
+     <!-- Search input to filter courses by title or instructor name -->
       <div class="row g-3 mb-4">
         <div class="col-md-4">
           <label for="search-input" class="form-label">Search</label>
           <input type="text" id="search-input" class="form-control" placeholder="Search by title or instructor">
         </div>
-
+      <!---------------- Level filter dropdown filter courses by difficulty level  ----------->
         <div class="col-md-4">
           <label for="level-filter" class="form-label">Level</label>
           <select id="level-filter" class="form-select">
@@ -30,7 +35,7 @@
             <option value="Advanced">Advanced</option>
           </select>
         </div>
-
+       <!-- Sort dropdown displayed courses based on rating, price, or duration -->
         <div class="col-md-4">
           <label for="sort-filter" class="form-label">Sort</label>
           <select id="sort-filter" class="form-select">
@@ -42,16 +47,20 @@
           </select>
         </div>
       </div>
-
+      <!------------------ Category buttons ----------------->
       <div class="mb-4 d-flex flex-wrap gap-2" id="category-buttons"></div>
+      <!-- course cards -->
       <div class="row g-4" id="courses-container"></div>
     </div>
   </main>
 
+  <!------------------ footer of the page ------------------>
   <div id="footer-container"></div>
-
+  <!-------------link bootstrap  ----------------------->
   <script src="./js/bootstrap.bundle.min.js"></script>
+   <!-------------link main script  ----------------------->
   <script src="./js/main.js"></script>
+   <!-------------link course script  ----------------------->
   <script src="./js/courses.js"></script>
 </body>
 </html>

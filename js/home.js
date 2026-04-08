@@ -1,4 +1,4 @@
-// take state from date.jason
+// take data from date.jason
 async function loadHomeData() {
   try {
     let response = await fetch('./data.json');
@@ -67,9 +67,9 @@ function renderFeaturedCourses(courses) {
     </div>
   `).join('');
 }
-
+//   Categories section ------------------
 function renderCategories(categories) {
-  const iconMap = {
+  let iconMap = {
     'Web Development': 'fa-solid fa-code',
     'Data Science': 'fa-solid fa-chart-line',
     'Design': 'fa-solid fa-pen-ruler',
@@ -78,7 +78,7 @@ function renderCategories(categories) {
     'DevOps': 'fa-solid fa-gears'
   };
 
-  const container = document.getElementById('categories-container');
+  let container = document.getElementById('categories-container');
   if (!container) return;
 
   container.innerHTML = categories.map(category => `
@@ -93,5 +93,5 @@ function renderCategories(categories) {
     </div>
   `).join('');
 }
-
+// loadHomeData
 document.addEventListener('DOMContentLoaded', loadHomeData);

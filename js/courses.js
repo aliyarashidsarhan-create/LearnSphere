@@ -1,9 +1,14 @@
 let allCourses = [];
 let selectedCategory = 'All';
-
+// load the course data from data.json
 async function loadCourses() {
   try {
     const response = await fetch('./data.json');
+
+    if (!response.ok) {
+      throw new Error('Failed to load data.json');
+    }
+
     const data = await response.json();
     allCourses = data.courses;
 
@@ -12,9 +17,20 @@ async function loadCourses() {
     bindFilters();
   } catch (error) {
     console.error('Error loading courses:', error);
+
+    const container = document.getElementById('courses-container');
+    if (container) {
+      container.innerHTML = `
+        <div class="col-12">
+          <div class="alert alert-danger">
+            Failed to load courses data.
+          </div>
+        </div>
+      `;
+    }
   }
 }
-
+// category filter buttons
 function renderCategoryButtons(categories) {
   const container = document.getElementById('category-buttons');
   if (!container) return;
@@ -38,14 +54,30 @@ function renderCategoryButtons(categories) {
 }
 
 function renderCourses(courses) {
-  const container = document.getElementById('courses-container');
+  let container = document.getElementById('courses-container');
   if (!container) return;
 
-  const enrolled = JSON.parse(localStorage.getItem('enrolled')) || [];
+  let enrolled = JSON.parse(localStorage.getItem('enrolled')) || [];
+
+  if (courses.length === 0) {
+    container.innerHTML = `
+      <div class="col-12">
+        <div class="empty-state">
+          <h4 class="mb-2">No courses found</h4>
+          <p class="mb-0">Try changing the filters or search text.</p>
+        </div>
+      </div>
+    `;
+    return;
+  }
 
   container.innerHTML = courses.map(course => {
     const isEnrolled = enrolled.some(item => item.id === course.id);
-    const ratingStars = '★'.repeat(Math.floor(course.rating));
+
+    const fullStars = '★'.repeat(Math.floor(course.rating));
+    const emptyStars = '☆'.repeat(5 - Math.floor(course.rating));
+    const ratingStars = fullStars + emptyStars;
+  //  card color 
     const colorMap = {
       'Web Development': '#6f42c1',
       'Design': '#e83e8c',
@@ -55,6 +87,13 @@ function renderCourses(courses) {
       'DevOps': '#0d6efd'
     };
 
+    let buttonText = 'Enroll';
+    if (!course.available) {
+      buttonText = 'Coming Soon';
+    } else if (isEnrolled) {
+      buttonText = 'Enrolled ✓';
+    }
+    // cource card content
     return `
       <div class="col-lg-4 col-md-6">
         <div class="card course-card h-100 position-relative">
@@ -65,10 +104,12 @@ function renderCourses(courses) {
           <div class="card-body">
             <h5 class="card-title">${course.title}</h5>
             <p class="mb-2"><i class="fa-solid fa-user me-2"></i>${course.instructor}</p>
+
             <div class="d-flex flex-wrap gap-2 mb-2">
               <span class="badge bg-warning text-dark">${course.category}</span>
               <span class="badge bg-primary">${course.level}</span>
             </div>
+
             <p class="rating-stars mb-2">${ratingStars}</p>
             <p class="mb-1"><i class="fa-regular fa-clock me-2"></i>${course.duration}</p>
             <p class="mb-1"><i class="fa-solid fa-users me-2"></i>${course.studentsCount} students</p>
@@ -81,7 +122,7 @@ function renderCourses(courses) {
                 data-id="${course.id}"
                 ${isEnrolled || !course.available ? 'disabled' : ''}
               >
-                ${isEnrolled ? 'Enrolled ✓' : 'Enroll'}
+                ${buttonText}
               </button>
             </div>
           </div>
@@ -92,23 +133,25 @@ function renderCourses(courses) {
 
   bindEnrollButtons();
 }
-
+// ربط أزرار Enroll
 function bindEnrollButtons() {
   document.querySelectorAll('.enroll-btn').forEach(button => {
     button.addEventListener('click', () => {
-      const courseId = Number(button.dataset.id);
-      const selectedCourse = allCourses.find(course => course.id === courseId);
+      let courseId = Number(button.dataset.id);
+      let selectedCourse = allCourses.find(course => course.id === courseId);
 
       let enrolled = JSON.parse(localStorage.getItem('enrolled')) || [];
-      const exists = enrolled.some(course => course.id === courseId);
+      let exists = enrolled.some(course => course.id === courseId);
 
-      if (!exists) {
+      if (!exists && selectedCourse) {
         enrolled.push(selectedCourse);
         localStorage.setItem('enrolled', JSON.stringify(enrolled));
+
         button.textContent = 'Enrolled ✓';
         button.disabled = true;
         button.classList.remove('btn-warning');
         button.classList.add('btn-success');
+
         updateEnrollmentBadge();
       }
     });
@@ -122,7 +165,7 @@ function bindFilters() {
 }
 
 function applyFilters() {
-  const searchValue = document.getElementById('search-input').value.toLowerCase();
+  const searchValue = document.getElementById('search-input').value.toLowerCase().trim();
   const levelValue = document.getElementById('level-filter').value;
   const sortValue = document.getElementById('sort-filter').value;
 
@@ -157,7 +200,7 @@ function applyFilters() {
 }
 
 function convertDurationToMinutes(duration) {
-  const parts = duration.match(/(\d+)h\s*(\d+)m/);
+  const parts = duration.match(/(\d+)h\s*(\d+)m/i);
   if (!parts) return 0;
   return Number(parts[1]) * 60 + Number(parts[2]);
 }

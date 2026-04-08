@@ -1,3 +1,4 @@
+// navbar of bages 
 const navbarHTML = `
 <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top custom-navbar">
   <div class="container">
@@ -18,7 +19,7 @@ const navbarHTML = `
           <a class="nav-link" href="courses.html">Courses</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="course-details.html">Instructors</a>
+          <a class="nav-link" href="">Instructors</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="index.html#contact">Contact</a>
@@ -83,32 +84,32 @@ const footerHTML = `
   </div>
 </footer>
 `;
-
+// insert Navbar وFooter in the bages
 function loadSharedComponents() {
-  const navbarContainer = document.getElementById('navbar-container');
-  const footerContainer = document.getElementById('footer-container');
+  let navbarContainer = document.getElementById('navbar-container');
+  let footerContainer = document.getElementById('footer-container');
 
   if (navbarContainer) navbarContainer.innerHTML = navbarHTML;
   if (footerContainer) footerContainer.innerHTML = footerHTML;
 }
-
+// Enrollment badge reed enrolled from local storage
 function getEnrolledCourses() {
   return JSON.parse(localStorage.getItem('enrolled')) || [];
 }
 
 function updateEnrollmentBadge() {
-  const badge = document.getElementById('enrolled-count');
+  let badge = document.getElementById('enrolled-count');
   if (badge) badge.textContent = getEnrolledCourses().length;
 }
-
+// Dark Mode
 function applySavedTheme() {
-  const savedTheme = localStorage.getItem('theme') || 'light';
+  let savedTheme = localStorage.getItem('theme') || 'light';
   document.body.classList.toggle('dark', savedTheme === 'dark');
   updateThemeIcon();
 }
 
 function updateThemeIcon() {
-  const icon = document.querySelector('#theme-toggle i');
+  let icon = document.querySelector('#theme-toggle i');
   if (!icon) return;
 
   if (document.body.classList.contains('dark')) {
@@ -119,26 +120,26 @@ function updateThemeIcon() {
 }
 
 function bindThemeToggle() {
-  const toggleBtn = document.getElementById('theme-toggle');
+  let toggleBtn = document.getElementById('theme-toggle');
   if (!toggleBtn) return;
 
   toggleBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark');
-    const theme = document.body.classList.contains('dark') ? 'dark' : 'light';
+    let theme = document.body.classList.contains('dark') ? 'dark' : 'light';
     localStorage.setItem('theme', theme);
     updateThemeIcon();
   });
 }
-
+// Newsletter button
 function bindNewsletter() {
-  const subscribeBtn = document.getElementById('subscribe-btn');
-  const emailInput = document.getElementById('newsletter-email');
-  const message = document.getElementById('subscribe-message');
+  let subscribeBtn = document.getElementById('subscribe-btn');
+  let emailInput = document.getElementById('newsletter-email');
+  let message = document.getElementById('subscribe-message');
 
   if (!subscribeBtn || !emailInput || !message) return;
 
   subscribeBtn.addEventListener('click', () => {
-    const email = emailInput.value.trim();
+    let email = emailInput.value.trim();
 
     if (email === '') {
       message.textContent = 'Please enter your email.';
@@ -151,11 +152,11 @@ function bindNewsletter() {
     emailInput.value = '';
   });
 }
-
+// Active nav link
 function setActiveNavLink() {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+ let currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
-    const href = link.getAttribute('href');
+    let href = link.getAttribute('href');
     if (href === currentPage) {
       link.classList.add('active');
     }

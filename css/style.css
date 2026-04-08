@@ -54,7 +54,7 @@ a {
   min-height: 85vh;
   background:
     linear-gradient(var(--hero-overlay), rgba(0, 0, 0, 0.45)),
-    url('../assets/images/hero.jpg') center/cover no-repeat;
+    url('../assets/image/hero.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   color: #fff;
@@ -137,6 +137,11 @@ a {
   font-size: 2rem;
   color: var(--primary);
   margin-bottom: 10px;
+}
+.testimonial-card {
+  background-color: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
 }
 
 .rating-stars {
