@@ -1,53 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/all.min.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!------------------ link all main css ------------------>
+  <link rel="stylesheet" href="./css/all.min.css">
+  <!----------------- link all Bootstrap css     ---------->
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <!------------------ link style  ------------------>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>LearnSphere - Home</title>
 </head>
 <body>
- <div id="navbar-container"></div>
-
-  <main class="py-5">
+  <!------------------ navbar of the page ------------------>
+  <div id="navbar-container"></div>
+  <!------------------ start hero section ------------------>
+  <header class="hero-section">
     <div class="container">
-      <h1 class="mb-4">Courses Catalog</h1>
-
-      <div class="row g-3 mb-4">
-        <div class="col-md-4">
-          <input type="text" id="search-input" class="form-control" placeholder="Search by title or instructor">
-        </div>
-        <div class="col-md-4">
-          <select id="level-filter" class="form-select">
-            <option value="All">All Levels</option>
-            <option value="Beginner">Beginner</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced">Advanced</option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <select id="sort-filter" class="form-select">
-            <option value="default">Sort By</option>
-            <option value="rating">Rating High to Low</option>
-            <option value="price-low">Price Low to High</option>
-            <option value="price-high">Price High to Low</option>
-            <option value="duration">Duration Shortest</option>
-          </select>
+      <div class="hero-content">
+        <h1>Learn Without Limits</h1>
+        <!-------- tagline --------->
+        <p class="my-3">
+          Explore high-quality online courses in web development, design, data science,
+          cybersecurity, and more.
+        </p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="courses.html" class="btn btn-warning btn-lg">Browse Courses</a>
+          <a href="#featured-courses" class="btn btn-outline-light btn-lg">Sign Up Free</a>
         </div>
       </div>
-
-      <div class="mb-4" id="category-buttons"></div>
-
-      <div class="row g-4" id="courses-container"></div>
     </div>
+  </header>
+       <!------------------ End hero section ------------------>
+       
+  <main>
+    <!--------------------- start Platform Stats section ------------------>
+    <section class="py-5">
+      <div class="container">
+        <h2 class="section-title text-center mb-4">Platform Stats</h2>
+        <div class="row g-4" id="stats-container"></div>
+      </div>
+    </section>
+     <!--------------------- End Platform Stats section ------------------>
+     <!--------------------- start Featured Courses section ------------------>
+    <section class="py-5 bg-light-subtle" id="featured-courses">
+      <div class="container">
+        <h2 class="section-title text-center mb-4">Featured Courses</h2>
+        <div class="row g-4" id="featured-courses-container"></div>
+      </div>
+    </section>
+       <!--------------------- End Featured Courses section ------------------>
+       <!--------------------- start Categories section ------------------>
+    <section class="py-5">
+      <div class="container">
+        <h2 class="section-title text-center mb-4">Browse Categories</h2>
+        <div class="row g-4" id="categories-container"></div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <h2 class="section-title text-center mb-4">Student Testimonials</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card testimonial-card p-4 h-100">
+              <div class="d-flex align-items-center mb-3">
+                <img src="./assets/image/JavaScript Course.jpg" alt="Student" class="testimonial-img me-3">
+                <div>
+                  <h6 class="mb-0">Aisha</h6>
+                  <small>JavaScript Course</small>
+                </div>
+              </div>
+              <p class="mb-0">“The lessons were easy to follow and helped me build real projects confidently.”</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card testimonial-card p-4 h-100">
+              <div class="d-flex align-items-center mb-3">
+                <img src="./assets/image/Bootstrap Course" alt="Student" class="testimonial-img me-3">
+                <div>
+                  <h6 class="mb-0">Omar</h6>
+                  <small>Bootstrap Course</small>
+                </div>
+              </div>
+              <p class="mb-0">“I loved the clean layout and practical exercises. It made frontend learning enjoyable.”</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card testimonial-card p-4 h-100">
+              <div class="d-flex align-items-center mb-3">
+                <img src="./assets/image/UIDesign.jpg" alt="Student" class="testimonial-img me-3">
+                <div>
+                  <h6 class="mb-0">Fatma</h6>
+                  <small>UI/UX Design</small>
+                </div>
+              </div>
+              <p class="mb-0">“The platform helped me improve my portfolio and understand design basics clearly.”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <div id="footer-container"></div>
-    
-    <script src="./js/all.min.js"></script>
-    <script src="./js/main.js"></script>
 
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/home.js"></script>
 </body>
 </html>

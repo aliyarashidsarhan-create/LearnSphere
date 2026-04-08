@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/all.min.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/all.min.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>LearnSphere - Courses</title>
 </head>
 <body>
- <div id="navbar-container"></div>
+  <div id="navbar-container"></div>
 
   <main class="py-5">
     <div class="container">
@@ -17,9 +17,12 @@
 
       <div class="row g-3 mb-4">
         <div class="col-md-4">
+          <label for="search-input" class="form-label">Search</label>
           <input type="text" id="search-input" class="form-control" placeholder="Search by title or instructor">
         </div>
+
         <div class="col-md-4">
+          <label for="level-filter" class="form-label">Level</label>
           <select id="level-filter" class="form-select">
             <option value="All">All Levels</option>
             <option value="Beginner">Beginner</option>
@@ -27,7 +30,9 @@
             <option value="Advanced">Advanced</option>
           </select>
         </div>
+
         <div class="col-md-4">
+          <label for="sort-filter" class="form-label">Sort</label>
           <select id="sort-filter" class="form-select">
             <option value="default">Sort By</option>
             <option value="rating">Rating High to Low</option>
@@ -38,15 +43,15 @@
         </div>
       </div>
 
-      <div class="mb-4" id="category-buttons"></div>
-
+      <div class="mb-4 d-flex flex-wrap gap-2" id="category-buttons"></div>
       <div class="row g-4" id="courses-container"></div>
     </div>
   </main>
 
   <div id="footer-container"></div>
+
   <script src="./js/bootstrap.bundle.min.js"></script>
-   <script src="./js/main.js"></script>
-    <script src="./js/courses.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/courses.js"></script>
 </body>
 </html>
