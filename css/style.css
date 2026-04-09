@@ -1,15 +1,17 @@
+/* ================= ROOT variable light mood ================= */
 :root {
-  --primary: #6f42c1;
-  --secondary: #ffc107;
-  --bg: #ffffff;
-  --text: #212529;
-  --card-bg: #ffffff;
-  --muted: #6c757d;
-  --footer-bg: #1f1f2e;
-  --border: #e9ecef;
-  --hero-overlay: rgba(111, 66, 193, 0.75);
+  --primary: #6f42c1;       /* Main brand color */
+  --secondary: #ffc107;     /* Accent color */
+  --bg: #ffffff;           /* Page background */
+  --text: #212529;         /* Main text color */
+  --card-bg: #ffffff;      /* Cards background */
+  --muted: #6c757d;        /* Secondary text */
+  --footer-bg: #1f1f2e;    /* Footer background */
+  --border: #e9ecef;       /* Borders */
+  --hero-overlay: rgba(111, 66, 193, 0.75); /* Hero overlay */
 }
 
+/* ================= dark mood ================= */
 body.dark {
   --bg: #121212;
   --text: #f8f9fa;
@@ -20,6 +22,7 @@ body.dark {
   --hero-overlay: rgba(0, 0, 0, 0.65);
 }
 
+/* ================= global style ================= */
 body {
   background-color: var(--bg);
   color: var(--text);
@@ -27,49 +30,89 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* Remove underline from links */
 a {
   text-decoration: none;
 }
 
+/* Section titles */
 .section-title {
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
+/* ================= navbar ================= */
 .custom-navbar {
-  background-color: var(--card-bg) !important;
+  background-color: var(--card-bg) ;
 }
 
+/* Navbar text colors */
 .custom-navbar .navbar-brand,
 .custom-navbar .nav-link {
-  color: var(--text) !important;
+  color: var(--text) ;
 }
 
+/* Navbar hover & active */
 .custom-navbar .nav-link.active,
 .custom-navbar .nav-link:hover {
-  color: var(--primary) !important;
+  color: var(--primary);
 }
 
+/* ================= hero section ================= */
 .hero-section {
   min-height: 85vh;
+
+  /* Background image with overlay */
   background:
     linear-gradient(var(--hero-overlay), rgba(0, 0, 0, 0.45)),
     url('../assets/image/hero.jpg') center/cover no-repeat;
+
+  /* Center content */
   display: flex;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+
   color: #fff;
 }
 
+/* Hero content container */
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Hero title */
 .hero-content h1 {
   font-size: 3rem;
   font-weight: 800;
 }
 
+/* Hero paragraph */
 .hero-content p {
   font-size: 1.1rem;
   max-width: 600px;
 }
 
+/* ================= alternating section ================= */
+.section-white {
+  background-color: #ffffff;
+}
+
+.section-colored {
+  background: linear-gradient(135deg, #f3f0ff, #e0d4ff);
+}
+
+/* Dark mode sections */
+body.dark .section-white {
+  background-color: #121212;
+}
+
+body.dark .section-colored {
+  background: linear-gradient(135deg, #1e1e1e, #2a2a40);
+}
+
+/* ================= card and input================= */
 .card,
 .form-control,
 .form-select,
@@ -83,6 +126,7 @@ a {
   transition: 0.3s ease;
 }
 
+/* Card styling */
 .course-card,
 .category-card,
 .stat-card,
@@ -92,6 +136,7 @@ a {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover effect for cards */
 .course-card:hover,
 .category-card:hover,
 .stat-card:hover,
@@ -100,11 +145,13 @@ a {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
+/* Course image */
 .course-card .card-img-top {
   height: 180px;
   object-fit: cover;
 }
 
+/* Placeholder for course image */
 .course-placeholder {
   height: 160px;
   display: flex;
@@ -115,6 +162,7 @@ a {
   font-weight: bold;
 }
 
+/* ================= category icon ================= */
 .category-icon {
   width: 70px;
   height: 70px;
@@ -128,6 +176,7 @@ a {
   font-size: 1.6rem;
 }
 
+/* ================= stats ================= */
 .stat-card {
   text-align: center;
   padding: 1.5rem;
@@ -138,26 +187,32 @@ a {
   color: var(--primary);
   margin-bottom: 10px;
 }
+
+/* ================= TESTIMONIAL ================= */
 .testimonial-card {
   background-color: var(--card-bg);
   color: var(--text);
   border: 1px solid var(--border);
 }
 
+/* Rating stars */
 .rating-stars {
   color: #f4b400;
 }
 
+/* Badge level */
 .badge-level {
   font-size: 0.8rem;
 }
 
+/* Active filter button */
 .filter-btn.active {
   background-color: var(--primary) !important;
   color: #fff !important;
   border-color: var(--primary) !important;
 }
 
+/* ================= FOOTER ================= */
 .site-footer {
   background-color: var(--footer-bg);
   color: #fff;
@@ -171,6 +226,7 @@ a {
   color: var(--secondary);
 }
 
+/* Social icons */
 .social-icons a {
   display: inline-flex;
   width: 38px;
@@ -188,11 +244,13 @@ a {
   color: #212529;
 }
 
+/* ================= progress bar ================= */
 .progress {
   height: 12px;
   border-radius: 20px;
 }
 
+/* ================= EMPTY STATE ================= */
 .empty-state {
   text-align: center;
   padding: 3rem 1rem;
@@ -200,6 +258,7 @@ a {
   border-radius: 20px;
 }
 
+/* ================= COMING SOON BADGE ================= */
 .coming-soon-badge {
   position: absolute;
   top: 12px;
@@ -212,6 +271,7 @@ a {
   z-index: 2;
 }
 
+/* ================= TESTIMONIAL IMAGE ================= */
 .testimonial-img {
   width: 60px;
   height: 60px;
@@ -219,6 +279,7 @@ a {
   border-radius: 50%;
 }
 
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2.2rem;

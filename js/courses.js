@@ -198,9 +198,9 @@ function applyFilters() {
 
   renderCourses(filtered);
 }
-
+// number houer
 function convertDurationToMinutes(duration) {
-  const parts = duration.match(/(\d+)h\s*(\d+)m/i);
+  let parts = duration.match(/(\d+)h\s*(\d+)m/i);
   if (!parts) return 0;
   return Number(parts[1]) * 60 + Number(parts[2]);
 }
