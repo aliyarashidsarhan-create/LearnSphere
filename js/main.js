@@ -22,12 +22,12 @@ const navbarHTML = `
           <a class="nav-link" href="">Instructors</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.html#contact">Contact</a>
+          <a class="nav-link" href="#contact">Contact</a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link position-relative" href="dashboard.html">
-            Enrolled
+            My-Learning
             <span id="enrolled-count" class="badge rounded-pill bg-warning text-dark ms-1">0</span>
           </a>
         </li>
