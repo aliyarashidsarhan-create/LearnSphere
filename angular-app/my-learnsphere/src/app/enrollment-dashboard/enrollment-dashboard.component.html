@@ -1,1 +1,15 @@
-<p>enrollment-dashboard works!</p>
+<app-navbar [enrolledCount]="enrolledCourses.length"></app-navbar>
+
+<div class="container py-4">
+  <h2 class="mb-4">Enrollment Dashboard</h2>
+
+  <div *ngIf="enrolledCourses.length === 0" class="alert alert-info">
+    No enrolled courses yet.
+  </div>
+
+  <ul class="list-group" *ngIf="enrolledCourses.length > 0">
+    <li class="list-group-item" *ngFor="let course of enrolledCourses">
+      {{ course.title }}
+    </li>
+  </ul>
+</div>
