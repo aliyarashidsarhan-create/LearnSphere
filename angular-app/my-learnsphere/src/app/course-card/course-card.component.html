@@ -1,1 +1,33 @@
-<p>course-card works!</p>
+<div class="card h-100 position-relative shadow-sm">
+  <div
+    *ngIf="!course.available"
+    class="position-absolute top-0 start-0 w-100 bg-warning text-dark text-center py-1 fw-bold"
+    style="z-index: 2;"
+  >
+    Coming Soon
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">{{ course.title }}</h5>
+    <p class="card-text mb-1"><strong>Instructor:</strong> {{ course.instructor }}</p>
+    <p class="card-text mb-1"><strong>Category:</strong> {{ course.category }}</p>
+    <p class="card-text mb-1"><strong>Duration:</strong> {{ course.duration }}</p>
+    <p class="card-text mb-1"><strong>Students:</strong> {{ course.studentsCount }}</p>
+    <p class="card-text mb-2"><strong>Price:</strong> ${{ course.price }}</p>
+
+    <div [ngSwitch]="course.level" class="mb-3">
+      <span *ngSwitchCase="'Beginner'" class="badge bg-success">Beginner</span>
+      <span *ngSwitchCase="'Intermediate'" class="badge bg-primary">Intermediate</span>
+      <span *ngSwitchCase="'Advanced'" class="badge bg-danger">Advanced</span>
+      <span *ngSwitchDefault class="badge bg-secondary">{{ course.level }}</span>
+    </div>
+
+    <button
+      *ngIf="course.available"
+      class="btn btn-primary w-100"
+      (click)="onEnroll()"
+    >
+      Enroll
+    </button>
+  </div>
+</div>

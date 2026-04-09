@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Course } from '../course';
 
 @Component({
   selector: 'app-course-card',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./course-card.component.css']
 })
 export class CourseCardComponent {
+  @Input() course!: Course;
+  @Output() enroll = new EventEmitter<Course>();
 
+  onEnroll(): void {
+    this.enroll.emit(this.course);
+  }
 }
