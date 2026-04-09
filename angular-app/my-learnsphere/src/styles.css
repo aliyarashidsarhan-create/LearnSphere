@@ -1,5 +1,7 @@
 :root {
-  --primary: #6f42c1;
+  --primary: #6f42c1; 
+  --navbar-bg: #7993d2;
+  --navbar-text: #ffffff;
   --secondary: #ffc107;
   --bg: #ffffff;
   --text: #212529;
@@ -16,6 +18,8 @@ body {
 
 body.dark {
   --bg: #121212;
+   --navbar-bg: #1e1e1e;
+  --navbar-text: #ffffff;
   --text: #f8f9fa;
   --card-bg: #1e1e1e;
   --muted: #adb5bd;
