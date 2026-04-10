@@ -5,8 +5,9 @@ import { Course } from './course';
   providedIn: 'root'
 })
 export class CoursesService {
+  // Main courses data used across the app
   private courses: Course[] = [
-    {
+    { 
       id: 1,
       title: 'HTML & CSS Fundamentals',
       category: 'Web Development',
@@ -140,21 +141,42 @@ export class CoursesService {
       ]
     }
   ];
+    //  Local enrolled courses array 
+  private enrolledCourses: Course[] = [];
+  constructor() {
+    //  Load enrolled courses from localStorage when the service starts
+    let saved = localStorage.getItem('enrolledCourses');
+    this.enrolledCourses = saved ? JSON.parse(saved) : [];
+  }
 
-  constructor() {}
-
+ 
+  //  Return all courses
   getCourses(): Course[] {
     return this.courses;
   }
 
+  // Filter courses by category
   getCoursesByCategory(category: string): Course[] {
     if (category === 'All') return this.courses;
     return this.courses.filter(c => c.category === category);
   }
 
+  //  Return top rated courses
   getTopRated(n: number): Course[] {
-    return [...this.courses]
-      .sort((a, b) => b.rating - a.rating)
-      .slice(0, n);
+    return [...this.courses].sort((a, b) => b.rating - a.rating).slice(0, n);
+  }
+
+  // Return enrolled courses
+  getEnrolledCourses(): Course[] {
+    return this.enrolledCourses;
+  }
+
+  // Add a course to enrolled list only if it does not already exist
+  enrollCourse(course: Course): void {
+    const exists = this.enrolledCourses.find(c => c.id === course.id);
+    if (!exists) {
+      this.enrolledCourses.push(course);
+      localStorage.setItem('enrolledCourses', JSON.stringify(this.enrolledCourses));
+    }
   }
 }

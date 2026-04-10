@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Course } from '../course';
 import { CoursesService } from '../courses.service';
 
@@ -7,10 +7,15 @@ import { CoursesService } from '../courses.service';
   templateUrl: './enrollment-dashboard.component.html',
   styleUrls: ['./enrollment-dashboard.component.css']
 })
-export class EnrollmentDashboardComponent {
+export class EnrollmentDashboardComponent implements OnInit {
+
+  //  Local enrolled courses array required by project
   enrolledCourses: Course[] = [];
 
-  constructor(private coursesService: CoursesService) {
-    this.enrolledCourses = this.coursesService.getTopRated(3);
+  constructor(private coursesService: CoursesService) {}
+
+  ngOnInit(): void {
+    //Load real enrolled courses from shared service
+    this.enrolledCourses = this.coursesService.getEnrolledCourses();
   }
 }

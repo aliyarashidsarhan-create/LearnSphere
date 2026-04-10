@@ -3,13 +3,13 @@
 <div class="container py-4">
   <h2 class="mb-4">Courses Catalog</h2>
 
-  <input
-    type="text"
-    class="form-control mb-3"
-    placeholder="Search by title or instructor"
-    [(ngModel)]="searchTerm"
-    (input)="filterCourses()"
-  />
+ <input
+  type="text"
+  class="form-control mb-3"
+  placeholder="Search by title or instructor"
+  [(ngModel)]="searchTerm"
+  (input)="filterCourses()"
+/>
 
   <div class="mb-4 d-flex flex-wrap gap-2">
     <button

@@ -1,5 +1,6 @@
+/*  ROOT VARIABLES  */
 :root {
-  --primary: #6f42c1; 
+  --primary: #6f42c1;
   --navbar-bg: #7993d2;
   --navbar-text: #ffffff;
   --secondary: #ffc107;
@@ -11,14 +12,18 @@
   --border: #e9ecef;
 }
 
+/*  BODY GLOBAL STYLE */
 body {
   background-color: var(--bg);
   color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
 }
 
+/*  DARK MODE VARIABLES*/
 body.dark {
   --bg: #121212;
-   --navbar-bg: #1e1e1e;
+  --navbar-bg: #1e1e1e;
   --navbar-text: #ffffff;
   --text: #f8f9fa;
   --card-bg: #1e1e1e;
@@ -27,19 +32,90 @@ body.dark {
   --border: #2b2b2b;
 }
 
+
+/* navbar style */
+.navbar {
+  background-color: var(--navbar-bg);
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.3s ease;
+}
+
+.navbar .navbar-brand {
+  color: var(--navbar-text);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.navbar .nav-link {
+  color: var(--navbar-text);
+  margin: 0 8px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--secondary);
+}
+
+
+/* THEME TOGGLE BUTTON  */
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.08);
+}
+
+
+/* global card style */
+
 .card {
   background-color: var(--card-bg);
   color: var(--text);
   border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.navbar {
-  background-color: var(--card-bg) !important;
-  color: var(--text);
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
+
+
+/* input style */
 
 input.form-control {
   background-color: var(--card-bg);
   color: var(--text);
   border-color: var(--border);
+}
+
+input.form-control::placeholder {
+  color: var(--muted);
+}
+
+
+/* dark mode */
+body.dark .card {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+body.dark .card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
