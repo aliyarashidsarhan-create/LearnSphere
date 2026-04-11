@@ -1,4 +1,4 @@
-/*  ROOT VARIABLES  */
+/* Root variables for light mode colours */
 :root {
   --primary: #6f42c1;
   --navbar-bg: #7993d2;
@@ -10,9 +10,12 @@
   --muted: #6c757d;
   --footer-bg: #1f1f2e;
   --border: #e9ecef;
+  --input-bg: #ffffff;
+  --badge-bg: #eef2ff;
+  --badge-text: #212529;
 }
 
-/*  BODY GLOBAL STYLE */
+/* Global body styling */
 body {
   background-color: var(--bg);
   color: var(--text);
@@ -20,7 +23,7 @@ body {
   margin: 0;
 }
 
-/*  DARK MODE VARIABLES*/
+/* Dark mode variables */
 body.dark {
   --bg: #121212;
   --navbar-bg: #1e1e1e;
@@ -30,10 +33,12 @@ body.dark {
   --muted: #adb5bd;
   --footer-bg: #0d0d14;
   --border: #2b2b2b;
+  --input-bg: #1e1e1e;
+  --badge-bg: #2a2a2a;
+  --badge-text: #f8f9fa;
 }
 
-
-/* navbar style */
+/* Navbar style */
 .navbar {
   background-color: var(--navbar-bg);
   padding: 12px 20px;
@@ -59,8 +64,15 @@ body.dark {
   color: var(--secondary);
 }
 
+/* Custom badge style */
+.badge,
+.custom-badge {
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  border: 1px solid var(--border);
+}
 
-/* THEME TOGGLE BUTTON  */
+/* Theme toggle button */
 .theme-toggle {
   width: 42px;
   height: 42px;
@@ -79,9 +91,7 @@ body.dark {
   transform: scale(1.08);
 }
 
-
-/* global card style */
-
+/* Global card style */
 .card {
   background-color: var(--card-bg);
   color: var(--text);
@@ -97,11 +107,9 @@ body.dark {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-
-/* input style */
-
+/* Input style */
 input.form-control {
-  background-color: var(--card-bg);
+  background-color: var(--input-bg);
   color: var(--text);
   border-color: var(--border);
 }
@@ -110,12 +118,26 @@ input.form-control::placeholder {
   color: var(--muted);
 }
 
-
-/* dark mode */
+/* Dark mode card shadow */
 body.dark .card {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
 }
 
 body.dark .card:hover {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* List group dark mode support */
+.list-group-item {
+  background-color: var(--card-bg);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+/* Active category button */
+.btn-outline-primary.active,
+.btn-outline-primary:active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
 }

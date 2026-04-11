@@ -1,13 +1,15 @@
+// Import Angular core, RxJS tools, and Course interface
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Course } from './course';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
-  // Main courses data used across the app
+  // Main courses data used across the application
   private courses: Course[] = [
-    { 
+    {
       id: 1,
       title: 'HTML & CSS Fundamentals',
       category: 'Web Development',
@@ -66,6 +68,25 @@ export class CoursesService {
     },
     {
       id: 4,
+      title: 'TypeScript Essentials',
+      category: 'Web Development',
+      instructor: 'Faris Al-Siyabi',
+      rating: 4.7,
+      price: 20,
+      duration: '10h 15m',
+      level: 'Intermediate',
+      studentsCount: 1870,
+      available: true,
+      topics: [
+        'TypeScript vs JavaScript',
+        'Static typing',
+        'Interfaces and type aliases',
+        'Classes and access modifiers',
+        'Compilation with tsc'
+      ]
+    },
+    {
+      id: 5,
       title: 'Angular 16 — Complete Guide',
       category: 'Web Development',
       instructor: 'Nadia Hassan',
@@ -78,28 +99,9 @@ export class CoursesService {
       topics: [
         'Angular CLI',
         'Data binding',
-        'ngIf ngFor ngSwitch',
+        'ngIf, ngFor, ngSwitch',
         'Services and DI',
-        '@Input and @Output'
-      ]
-    },
-    {
-      id: 5,
-      title: 'Python for Data Science',
-      category: 'Data Science',
-      instructor: 'Khalid Al-Farsi',
-      rating: 4.7,
-      price: 30,
-      duration: '18h 30m',
-      level: 'Intermediate',
-      studentsCount: 2210,
-      available: true,
-      topics: [
-        'Python basics',
-        'NumPy',
-        'Pandas',
-        'Matplotlib',
-        'Machine learning intro'
+        '@Input() and @Output()'
       ]
     },
     {
@@ -123,6 +125,25 @@ export class CoursesService {
     },
     {
       id: 7,
+      title: 'Python for Data Science',
+      category: 'Data Science',
+      instructor: 'Khalid Al-Farsi',
+      rating: 4.7,
+      price: 30,
+      duration: '18h 30m',
+      level: 'Intermediate',
+      studentsCount: 2210,
+      available: true,
+      topics: [
+        'Python basics',
+        'NumPy',
+        'Pandas',
+        'Matplotlib',
+        'Machine learning intro'
+      ]
+    },
+    {
+      id: 8,
       title: 'Ethical Hacking & Network Security',
       category: 'Cybersecurity',
       instructor: 'Yousef Al-Balushi',
@@ -141,42 +162,55 @@ export class CoursesService {
       ]
     }
   ];
-    //  Local enrolled courses array 
+
+  // Store enrolled courses and sync them across components
   private enrolledCourses: Course[] = [];
+  private enrolledCoursesSubject = new BehaviorSubject<Course[]>([]);
+  enrolledCourses$ = this.enrolledCoursesSubject.asObservable();
+
   constructor() {
-    //  Load enrolled courses from localStorage when the service starts
-    let saved = localStorage.getItem('enrolledCourses');
+    // Load enrolled courses from localStorage when the service starts
+    const saved = localStorage.getItem('enrolledCourses');
     this.enrolledCourses = saved ? JSON.parse(saved) : [];
+    this.enrolledCoursesSubject.next([...this.enrolledCourses]);
   }
 
- 
-  //  Return all courses
+  // Return all courses
   getCourses(): Course[] {
-    return this.courses;
+    return [...this.courses];
   }
 
   // Filter courses by category
   getCoursesByCategory(category: string): Course[] {
-    if (category === 'All') return this.courses;
-    return this.courses.filter(c => c.category === category);
+    if (category === 'All') {
+      return [...this.courses];
+    }
+    return this.courses.filter(course => course.category === category);
   }
 
-  //  Return top rated courses
+  // Return top rated courses
   getTopRated(n: number): Course[] {
     return [...this.courses].sort((a, b) => b.rating - a.rating).slice(0, n);
   }
 
   // Return enrolled courses
   getEnrolledCourses(): Course[] {
-    return this.enrolledCourses;
+    return [...this.enrolledCourses];
   }
 
-  // Add a course to enrolled list only if it does not already exist
+  // Add a course to enrolled list only if it is not already added
   enrollCourse(course: Course): void {
     const exists = this.enrolledCourses.find(c => c.id === course.id);
+
     if (!exists) {
       this.enrolledCourses.push(course);
       localStorage.setItem('enrolledCourses', JSON.stringify(this.enrolledCourses));
+      this.enrolledCoursesSubject.next([...this.enrolledCourses]);
     }
+  }
+
+  // Check if a course is already enrolled
+  isEnrolled(courseId: number): boolean {
+    return this.enrolledCourses.some(course => course.id === courseId);
   }
 }

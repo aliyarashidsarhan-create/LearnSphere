@@ -1,13 +1,12 @@
-<div class="card h-100 position-relative shadow-sm">
+<div class="card h-100 position-relative shadow-sm course-card">
+  <!-- Show banner when course is not available -->
   <div
     *ngIf="!course.available"
-    class="position-absolute top-0 start-0 w-100 bg-warning text-dark text-center py-1 fw-bold"
-    style="z-index: 2;"
-  >
+    class="position-absolute top-0 start-0 w-100 coming-soon-banner text-center py-1 fw-bold" >
     Coming Soon
   </div>
 
-  <div class="card-body">
+  <div class="card-body d-flex flex-column">
     <h5 class="card-title">{{ course.title }}</h5>
     <p class="card-text mb-1"><strong>Instructor:</strong> {{ course.instructor }}</p>
     <p class="card-text mb-1"><strong>Category:</strong> {{ course.category }}</p>
@@ -15,6 +14,7 @@
     <p class="card-text mb-1"><strong>Students:</strong> {{ course.studentsCount }}</p>
     <p class="card-text mb-2"><strong>Price:</strong> ${{ course.price }}</p>
 
+    <!-- Level badge using ngSwitch -->
     <div [ngSwitch]="course.level" class="mb-3">
       <span *ngSwitchCase="'Beginner'" class="badge bg-success">Beginner</span>
       <span *ngSwitchCase="'Intermediate'" class="badge bg-primary">Intermediate</span>
@@ -22,12 +22,11 @@
       <span *ngSwitchDefault class="badge bg-secondary">{{ course.level }}</span>
     </div>
 
-    <button
-      *ngIf="course.available"
-      class="btn btn-primary w-100"
-      (click)="onEnroll()"
-    >
-      Enroll
+    <!-- Show button only if course is available -->
+    <button *ngIf="course.available" class="btn w-100 mt-auto"
+      [disabled]="isEnrolled" [ngClass]="isEnrolled ? 'btn-success' : 'btn-primary'"
+      (click)="onEnroll()"  type="button" >
+      {{ isEnrolled ? 'Enrolled ✓' : 'Enroll' }}
     </button>
   </div>
 </div>

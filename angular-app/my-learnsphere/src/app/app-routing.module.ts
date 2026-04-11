@@ -6,7 +6,8 @@ import { EnrollmentDashboardComponent } from './enrollment-dashboard/enrollment-
 const routes: Routes = [
   { path: '', redirectTo: 'courses', pathMatch: 'full' },
   { path: 'courses', component: CoursesListComponent },
-  { path: 'dashboard', component: EnrollmentDashboardComponent }
+  { path: 'dashboard', component: EnrollmentDashboardComponent },
+  { path: '**', redirectTo: 'courses' }
 ];
 
 @NgModule({

@@ -1,39 +1,48 @@
-<app-navbar [enrolledCount]="enrolledCourses.length"></app-navbar>
-
 <div class="container py-4">
   <h2 class="mb-4">Courses Catalog</h2>
 
- <input
-  type="text"
-  class="form-control mb-3"
-  placeholder="Search by title or instructor"
-  [(ngModel)]="searchTerm"
-  (input)="filterCourses()"
-/>
+  <!-- Search input with live filtering -->
+  <input
+    type="text"
+    class="form-control mb-3"
+    placeholder="Search by title or instructor"
+    [(ngModel)]="searchTerm"
+    (input)="filterCourses()"
+  />
 
+  <!-- Category filter buttons -->
   <div class="mb-4 d-flex flex-wrap gap-2">
     <button
       *ngFor="let category of categories"
       class="btn btn-outline-primary"
       [class.active]="selectedCategory === category"
       (click)="selectCategory(category)"
+      type="button"
     >
       {{ category }}
     </button>
   </div>
 
+  <!-- Render filtered courses -->
   <div class="row g-4">
     <div class="col-md-6 col-lg-4" *ngFor="let course of filteredCourses">
       <app-course-card
         [course]="course"
+        [isEnrolled]="isCourseEnrolled(course.id)"
         (enroll)="onEnroll($event)"
       ></app-course-card>
     </div>
   </div>
 
+  <!-- Show enrolled courses -->
   <div class="mt-5">
     <h4>Enrolled Courses</h4>
-    <ul class="list-group">
+
+    <div *ngIf="enrolledCourses.length === 0" class="alert alert-info">
+      No enrolled courses yet.
+    </div>
+
+    <ul class="list-group" *ngIf="enrolledCourses.length > 0">
       <li class="list-group-item" *ngFor="let course of enrolledCourses">
         {{ course.title }}
       </li>

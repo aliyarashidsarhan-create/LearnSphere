@@ -1,3 +1,4 @@
+// Import Angular tools, Course interface, and service
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../course';
 import { CoursesService } from '../courses.service';
@@ -12,54 +13,66 @@ export class CoursesListComponent implements OnInit {
   courses: Course[] = [];
   filteredCourses: Course[] = [];
 
-  //  Store enrolled courses count from shared service
+  // Store enrolled courses locally
   enrolledCourses: Course[] = [];
 
-  // Variables for search and selected category
+  // Search and filter values
   searchTerm: string = '';
   selectedCategory: string = 'All';
 
-  //  Category buttons
-  categories: string[] = ['All', 'Web Development', 'Data Science', 'Design', 'Cybersecurity'];
+  // Full required category buttons
+  categories: string[] = [
+    'All',
+    'Web Development',
+    'Data Science',
+    'Design',
+    'Cybersecurity',
+    'Mobile Dev',
+    'DevOps'
+  ];
 
   constructor(private coursesService: CoursesService) {}
 
   ngOnInit(): void {
-    //  Load all courses
+    // Load all courses
     this.courses = this.coursesService.getCourses();
-    this.filteredCourses = this.courses;
+    this.filteredCourses = [...this.courses];
 
-    //  Load enrolled courses from shared service
-    this.enrolledCourses = this.coursesService.getEnrolledCourses();
+    // Listen for enrolled courses changes
+    this.coursesService.enrolledCourses$.subscribe(courses => {
+      this.enrolledCourses = courses;
+    });
   }
 
+  // Filter courses by category and search term
   filterCourses(): void {
-    //  First filter by category
     let result = this.coursesService.getCoursesByCategory(this.selectedCategory);
 
-    // Step 8: Then filter by search term
     if (this.searchTerm.trim()) {
+      const term = this.searchTerm.toLowerCase().trim();
+
       result = result.filter(course =>
-        course.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-        course.instructor.toLowerCase().includes(this.searchTerm.toLowerCase())
+        course.title.toLowerCase().includes(term) ||
+        course.instructor.toLowerCase().includes(term)
       );
     }
 
-    // Update displayed courses
     this.filteredCourses = result;
   }
 
+  // Select a category button
   selectCategory(category: string): void {
-    //  Update selected category and re-filter
     this.selectedCategory = category;
     this.filterCourses();
   }
 
+  // Handle enroll event from child component
   onEnroll(course: Course): void {
-    //Enroll the selected course using shared service
     this.coursesService.enrollCourse(course);
+  }
 
-    // Refresh enrolled list so navbar count updates
-    this.enrolledCourses = this.coursesService.getEnrolledCourses();
+  // Check if course already enrolled
+  isCourseEnrolled(courseId: number): boolean {
+    return this.enrolledCourses.some(course => course.id === courseId);
   }
 }
