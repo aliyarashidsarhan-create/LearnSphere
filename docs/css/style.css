@@ -4,7 +4,7 @@
   --secondary: #ffc107;     /* Accent color */
   --bg: #ffffff;           /* Page background */
   --text: #212529;         /* Main text color */
-  --card-bg: #ffffff;      /* Cards background */
+  --card-bg: #f5efef;      /* Cards background */
   --muted: #6c757d;        /* Secondary text */
   --footer-bg: #1f1f2e;    /* Footer background */
   --border: #e9ecef;       /* Borders */
@@ -14,7 +14,7 @@
 /* ================= dark mood ================= */
 body.dark {
   --bg: #121212;
-  --text: #f8f9fa;
+  --text: #97999b;
   --card-bg: #1e1e1e;
   --muted: #adb5bd;
   --footer-bg: #0d0d14;
@@ -57,7 +57,20 @@ a {
 .custom-navbar .nav-link:hover {
   color: var(--primary);
 }
+/* Dark mode navbar fix */
+body.dark .custom-navbar .navbar-brand,
+body.dark .custom-navbar .nav-link {
+  color: #ffffff;
+}
 
+/* Hover & active */
+body.dark .custom-navbar .nav-link:hover,
+body.dark .custom-navbar .nav-link.active {
+  color: var(--secondary); 
+}
+body.dark #theme-toggle i {
+  color: #ffffff;
+}
 /* ================= hero section ================= */
 .hero-section {
   min-height: 85vh;
